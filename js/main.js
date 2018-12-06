@@ -6,8 +6,8 @@ entrance=document.getElementById("Enter");
 entrance.style.visibility="hidden";
 var us=document.getElementById("us");
 var fr=document.getElementById("fr");
-fr.style.visibility="hidden";
-us.style.visibility="hidden";
+//fr.style.visibility="hidden";
+//us.style.visibility="hidden";
 
 
 VK.Auth.getLoginStatus(function (response) {
