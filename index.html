@@ -20,7 +20,7 @@
     var status=document.getElementById("status");
     logBtn.onclick = function(){
         VK.Auth.login(function (response) {
-            alert(JSON.response);
+            status.innerText=response.toString();
         },VK.access.FRIENDS);
     }
 
