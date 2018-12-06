@@ -23,7 +23,7 @@
         VK.Auth.login(function (response) {
             var res=JSON.parse(JSON.stringify(response));
 
-            user.innerHTML=res["first_name"];
+            user.innerHTML=res["user"]["first_name"]+" "+res["user"]["last_name"];
         },VK.access.FRIENDS);
     }
 
