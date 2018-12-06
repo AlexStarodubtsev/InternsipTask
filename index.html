@@ -8,6 +8,7 @@
 <button id="loginBtn">
     Login
 </button>
+<div id="status"></div>
 <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
 <script type="text/javascript">
     VK.init({
@@ -16,11 +17,13 @@
 </script>
 <script>
     var logBtn= document.getElementById("loginBtn");
+    var status=document.getElementById("status");
     logBtn.onclick = function(){
         VK.Auth.login(function (response) {
-            alert(JSON(response))
+            status.innerText;
         },VK.access.FRIENDS);
     }
+
 
 </script>
 </body>
