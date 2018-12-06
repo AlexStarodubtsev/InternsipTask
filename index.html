@@ -21,8 +21,9 @@
 
     logBtn.onclick = function(){
         VK.Auth.login(function (response) {
-            console.log(JSON.stringify(response));
-            user.innerHTML="23";
+            var res=JSON.parse(response);
+
+            user.innerHTML=res["first_name"];
         },VK.access.FRIENDS);
     }
 
