@@ -5,9 +5,10 @@
     <title>Title</title>
 </head>
 <body>
-<h3>User:</h3>
+<button id="Enter">Войти</button>
+<h3 id="us">User:</h3>
 <div id="Name"></div>
-<h3>Friends:</h3>
+<h3 id="fr">Friends:</h3>
 <div id="Friends"></div>
 <script src="https://vk.com/js/api/openapi.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -15,49 +16,6 @@
         apiId: 6774045
     });
 </script>
-<script>
-   // var logBtn= document.getElementById("loginBtn");
-    var user=document.getElementById("Name");
-    var user_id="";
-    var friends=document.getElementById("Friends");
-    window.onload = function(){
-        VK.Auth.login(function (response) {
-            var res = JSON.parse(JSON.stringify(response));
-
-
-            user.innerHTML = res['session']['user']['first_name'] + " " + res['session']['user']['last_name'];
-            user_id = res['session']['user']['id'];
-
-
-            VK.Api.call('friends.get', {user_ids: user_id, v:"5.73"}, function(response) {
-
-               var users=JSON.parse(JSON.stringify(response["response"]["items"]));
-               var n=5;
-               if (users.length<5)
-                   n=users.length;
-               for(var i =0; i<n; i++)
-               {
-                   VK.Api.call('users.get', {user_ids: users[i], v:"5.73"}, function(resp) {
-                            var friend = JSON.parse(JSON.stringify(resp))["response"][0];
-                            friends.innerHTML+=friend["first_name"]+" "+friend["last_name"]+"<br/>"
-                            console.log();
-                    })
-               }
-
-            });
-
-
-
-
-
-            //console.log(VK.Friend.get());
-        },VK.access.FRIENDS);
-
-
-
-    }
-
-
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
