@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="loginBtn">
+    Login
+</button>
+<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+<script type="text/javascript">
+    VK.init({
+        apiId: 6774045
+    });
+</script>
+<script>
+    var logBtn= document.getElementById("loginBtn");
+    logBtn.onclick = function(){
+        VK.Auth.login(function (response) {
+            alert(response.status)
+        },VK.access.FRIENDS);
+    }
+
+</script>
+</body>
+</html>
